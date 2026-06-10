@@ -529,17 +529,8 @@ body {
 /* ---------- Dark mode transition ---------- */
 html, body, * { transition: background-color .25s, border-color .25s, color .15s; }
 
-/* ---------- Page system ---------- */
-.page { display: none; }
-.page.active { display: block; }
-
-/* ---------- Booth steps ---------- */
-.booth-step { display: none; }
-.booth-step.active { display: block; }
-
-/* ---------- Editor tabs ---------- */
-.editor-tab-content { display: none; }
-.editor-tab-content.active { display: block; }
+/* ---------- Page / step visibility managed via JS inline style ---------- */
+/* Editor tabs also managed via JS inline style */
 
 /* ---------- Responsive tweaks ---------- */
 @media (max-width: 640px) {
