@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <tittle>kiwiSnapBooth - Premium Online Photobootg</tittle>
+        <title>kiwiSnapBooth - Premium Online Photobooth</tittle>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
         <script src="https://cdn.tailwindcss.com"></script>
@@ -13,7 +13,7 @@
                 theme:{
                     extend: {
                         fontFamily: {syne: ['Syne','sans-serif'], inter: ['Inter','sans-serif']},
-                        colors: {
+                        colors: { 
                             violet: { 600:'#7C3AED', 500:'#8B5CF6', 400:'#A855F7' },
                         }
                     }
@@ -25,6 +25,516 @@
 
     <body class="font-inter bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-        <div id="toast-container"
+        <div id="toast-container" class="fixed top-5 right-5 z-[9999] bg-violet-600 flex items-center justify-center hidden">
+            <div class="text-center text-white">
+                <div class="loader-ring mx-auto mb-4">
+                    <p class="font-syne text-xl font-bold">
+                        <p class="text-sm opacity-70 mt-1">Loading your cretaive space...</p>
+                    </p>
+                </div>
+            </div>
+        </div>
 
+        <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all suration-300">
+            <div class="max-w-7x1 mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+                <a href="#home" class="font-syne font-800 text-x1 flex items-center gap-2 nav-link" data-page="home">
+                    <span class="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white text-sm font-bold">S</span>
+                    <span class="font-syne font-extrabold">SnapBooth</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="home">Home</a>
+                    <a href="#booth" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="booth">Booth</a>
+                    <a href="#templates" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="templates">Templates</a>
+                    <a href="#gallery" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="gallery">Gallery</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="w=9 h-9 rounded-lg glass-btn flex items-center justify-center">
+                        <span class="hamburger-icon">☰</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden glass-card mc-4 mb-4 rounded-2x1 p-4">
+                <div class="flex flex-col gap-3">
+                    <a href="#home" class="nav-link mobile-nav-link"data-page="home">🏠 Home</a>
+      <a href="#booth" class="nav-link mobile-nav-link" data-page="booth">📸 Booth</a>
+      <a href="#templates" class="nav-link mobile-nav-link" data-page="templates">🎨 Templates</a>
+      <a href="#gallery" class="nav-link mobile-nav-link" data-page="gallery">🖼️ Gallery</a>
+    </div>
+  </div>
+</nav>
+ 
+<!-- ========== PAGES ========== -->
+<main>
+ 
+<!-- ===== PAGE: HOME ===== -->
+<div id="page-home" class="page active">
+ 
+  <!-- Hero Section -->
+  <section id="home" class="hero-section min-h-screen flex items-center pt-20 px-4 relative overflow-hidden">
+    <div class="hero-bg-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div>
+        <div class="inline-flex items-center gap-2 glass-pill mb-6 text-sm font-medium text-violet-600 dark:text-violet-400">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Camera Ready · No install needed
+        </div>
+        <h1 class="font-syne font-extrabold text-5xl sm:text-6xl lg:text-7xl leading-none mb-6">
+          Your Booth,<br/>
+          <span class="text-gradient">Your Story.</span>
+        </h1>
+        <p class="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mb-8 max-w-md">
+          Create stunning photostrips in seconds. Pick a template, snap or upload photos, add filters and stickers — then download your masterpiece.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button class="btn-primary text-base px-6 py-3 nav-link" data-page="booth">
+            ✨ Start Creating
+          </button>
+          <button id="hero-try-camera" class="btn-ghost text-base px-6 py-3">
+            📷 Try Camera
+          </button>
+        </div>
+        <div class="flex items-center gap-6 mt-10">
+          <div class="text-center">
+            <p class="font-syne font-bold text-2xl text-violet-600">50K+</p>
+            <p class="text-xs text-gray-400">Photos created</p>
+          </div>
+          <div class="w-px h-10 bg-gray-200 dark:bg-gray-700"></div>
+          <div class="text-center">
+            <p class="font-syne font-bold text-2xl text-violet-600">10</p>
+            <p class="text-xs text-gray-400">Templates</p>
+          </div>
+          <div class="w-px h-10 bg-gray-200 dark:bg-gray-700"></div>
+          <div class="text-center">
+            <p class="font-syne font-bold text-2xl text-violet-600">Free</p>
+            <p class="text-xs text-gray-400">Forever</p>
+          </div>
+        </div>
+      </div>
+      <div class="relative flex justify-center">
+        <div class="hero-preview-card glass-card p-4 rounded-3xl max-w-xs w-full">
+          <div id="hero-camera-preview" class="rounded-2xl overflow-hidden bg-gray-900 aspect-square flex items-center justify-center relative">
+            <div id="hero-camera-placeholder" class="text-center text-gray-500 px-4">
+              <div class="text-5xl mb-3">📸</div>
+              <p class="text-sm">Click "Try Camera" to preview</p>
+            </div>
+            <video id="hero-video" class="w-full h-full object-cover hidden" autoplay muted playsinline></video>
+            <canvas id="hero-canvas" class="hidden"></canvas>
+          </div>
+          <div class="mt-3 flex gap-2">
+            <div class="flex-1 h-16 rounded-xl bg-violet-100 dark:bg-violet-900/30 strip-thumb"></div>
+            <div class="flex-1 h-16 rounded-xl bg-purple-100 dark:bg-purple-900/30 strip-thumb"></div>
+            <div class="flex-1 h-16 rounded-xl bg-pink-100 dark:bg-pink-900/30 strip-thumb"></div>
+            <div class="flex-1 h-16 rounded-xl bg-violet-100 dark:bg-violet-900/30 strip-thumb"></div>
+          </div>
+        </div>
+        <!-- floating badges -->
+        <div class="floating-badge absolute -left-4 top-12 glass-card px-3 py-2 rounded-xl text-xs font-medium animate-float">🎨 8 Filters</div>
+        <div class="floating-badge absolute -right-4 top-1/3 glass-card px-3 py-2 rounded-xl text-xs font-medium animate-float-delay">⚡ Instant Download</div>
+        <div class="floating-badge absolute left-0 bottom-8 glass-card px-3 py-2 rounded-xl text-xs font-medium animate-float">🎞️ 10 Templates</div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- How It Works -->
+  <section class="py-24 px-4 bg-gray-50 dark:bg-gray-900/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-violet-600 font-medium text-sm mb-2 uppercase tracking-widest">Simple Process</p>
+        <h2 class="font-syne font-extrabold text-4xl md:text-5xl">How It Works</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="how-card glass-card p-6 rounded-2xl text-center group hover:-translate-y-1 transition-transform">
+          <div class="step-icon mx-auto mb-4 w-14 h-14 rounded-2xl bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🎨</div>
+          <div class="step-num font-syne font-bold text-violet-400 text-sm mb-2">STEP 01</div>
+          <h3 class="font-syne font-bold text-lg mb-2">Choose Template</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Pick from 10 stunning photostrip templates — classic, K-Pop, vintage, and more.</p>
+        </div>
+        <div class="how-card glass-card p-6 rounded-2xl text-center group hover:-translate-y-1 transition-transform">
+          <div class="step-icon mx-auto mb-4 w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📷</div>
+          <div class="step-num font-syne font-bold text-purple-400 text-sm mb-2">STEP 02</div>
+          <h3 class="font-syne font-bold text-lg mb-2">Snap or Upload</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Use your webcam with countdown timer, or drag and drop your own photos.</p>
+        </div>
+        <div class="how-card glass-card p-6 rounded-2xl text-center group hover:-translate-y-1 transition-transform">
+          <div class="step-icon mx-auto mb-4 w-14 h-14 rounded-2xl bg-pink-100 dark:bg-pink-900/40 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">✏️</div>
+          <div class="step-num font-syne font-bold text-pink-400 text-sm mb-2">STEP 03</div>
+          <h3 class="font-syne font-bold text-lg mb-2">Edit & Style</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Apply filters, add stickers, text, frames, adjust brightness and more.</p>
+        </div>
+        <div class="how-card glass-card p-6 rounded-2xl text-center group hover:-translate-y-1 transition-transform">
+          <div class="step-icon mx-auto mb-4 w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">⬇️</div>
+          <div class="step-num font-syne font-bold text-amber-400 text-sm mb-2">STEP 04</div>
+          <h3 class="font-syne font-bold text-lg mb-2">Download & Print</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400">Export as PNG, JPG, or PDF. Print directly from your browser instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Trending Templates -->
+  <section id="templates-section" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div>
+          <p class="text-violet-600 font-medium text-sm mb-2 uppercase tracking-widest">Trending Now</p>
+          <h2 class="font-syne font-extrabold text-4xl md:text-5xl">Popular Templates</h2>
+        </div>
+        <button class="btn-ghost text-sm px-4 py-2 nav-link" data-page="templates">View All →</button>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="home-templates-grid">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Testimonials -->
+  <section class="py-24 px-4 bg-gray-50 dark:bg-gray-900/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-violet-600 font-medium text-sm mb-2 uppercase tracking-widest">Loved By Users</p>
+        <h2 class="font-syne font-extrabold text-4xl md:text-5xl">What People Say</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="testimonial-card glass-card p-6 rounded-2xl">
+          <div class="flex gap-1 mb-3">★★★★★</div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">"Used this at my graduation party and everyone was obsessed! The K-Pop template was a huge hit. Downloaded 20+ strips in one night."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-violet-200 dark:bg-violet-800 flex items-center justify-center font-bold text-violet-700 dark:text-violet-300">S</div>
+            <div><p class="font-semibold text-sm">Sarah K.</p><p class="text-xs text-gray-400">Graduate, 2024</p></div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card p-6 rounded-2xl">
+          <div class="flex gap-1 mb-3">★★★★★</div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">"Surprisingly polished for a free tool. The vintage film template with sepia filter is *chef's kiss*. Saved a bunch to my gallery too."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-purple-200 dark:bg-purple-800 flex items-center justify-center font-bold text-purple-700 dark:text-purple-300">M</div>
+            <div><p class="font-semibold text-sm">Marco R.</p><p class="text-xs text-gray-400">Photographer</p></div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card p-6 rounded-2xl">
+          <div class="flex gap-1 mb-3">★★★★★</div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">"I set this up on a tablet at my friend's wedding! Guests loved it. The countdown timer and mirror mode made it so easy for everyone."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-pink-200 dark:bg-pink-800 flex items-center justify-center font-bold text-pink-700 dark:text-pink-300">A</div>
+            <div><p class="font-semibold text-sm">Aisha T.</p><p class="text-xs text-gray-400">Event Planner</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- CTA -->
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="cta-card glass-card p-12 rounded-3xl relative overflow-hidden">
+        <div class="cta-glow"></div>
+        <h2 class="font-syne font-extrabold text-4xl md:text-5xl mb-4 relative z-10">Ready to Snap?</h2>
+        <p class="text-gray-500 dark:text-gray-400 mb-8 relative z-10">No sign-up. No watermark. Just pure creative fun.</p>
+        <button class="btn-primary text-base px-8 py-4 relative z-10 nav-link" data-page="booth">
+          🚀 Open the Booth
+        </button>
+      </div>
+    </div>
+  </section>
+ 
+</div>
+<!-- END PAGE HOME -->
+ 
+<!-- ===== PAGE: TEMPLATES ===== -->
+<div id="page-templates" class="page hidden pt-24 pb-16 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="font-syne font-extrabold text-4xl md:text-5xl mb-3">All Templates</h1>
+      <p class="text-gray-500">Choose your style and start creating</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="all-templates-grid">
+      <!-- Filled by JS -->
+    </div>
+  </div>
+</div>
+ 
+<!-- ===== PAGE: GALLERY ===== -->
+<div id="page-gallery" class="page hidden pt-24 pb-16 px-4" id="gallery">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
+      <div>
+        <h1 class="font-syne font-extrabold text-4xl md:text-5xl">My Gallery</h1>
+        <p class="text-gray-500 mt-1" id="gallery-count">0 photos saved</p>
+      </div>
+      <button id="clear-gallery-btn" class="btn-ghost text-sm px-4 py-2 text-red-500 border-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 hidden">🗑️ Clear All</button>
+    </div>
+    <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <!-- Filled by JS -->
+    </div>
+    <div id="gallery-empty" class="text-center py-24">
+      <div class="text-6xl mb-4">🖼️</div>
+      <h3 class="font-syne font-bold text-xl mb-2">Nothing saved yet</h3>
+      <p class="text-gray-400 mb-6">Create your first photobooth strip and save it here.</p>
+      <button class="btn-primary px-6 py-3 nav-link" data-page="booth">Open Booth</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- ===== PAGE: BOOTH ===== -->
+<div id="page-booth" class="page hidden pt-20 min-h-screen" id="booth">
+ 
+  <!-- Template Selection Step -->
+  <div id="booth-step-template" class="booth-step px-4 py-10">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h1 class="font-syne font-extrabold text-3xl md:text-4xl mb-2">Choose a Template</h1>
+        <p class="text-gray-400">Pick your photostrip style to get started</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="booth-templates-grid"></div>
+    </div>
+  </div>
+ 
+  <!-- Camera / Upload Step -->
+  <div id="booth-step-capture" class="booth-step hidden px-4 py-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-4 mb-6">
+        <button id="back-to-templates" class="btn-ghost px-3 py-2 text-sm">← Back</button>
+        <div>
+          <h2 class="font-syne font-bold text-2xl" id="capture-template-name">Classic 4 Photo</h2>
+          <p class="text-gray-400 text-sm" id="capture-photos-needed">Take 4 photos</p>
+        </div>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-6">
+ 
+        <!-- Camera / Upload Panel -->
+        <div class="lg:col-span-2">
+          <!-- Mode tabs -->
+          <div class="flex gap-2 mb-4">
+            <button id="tab-camera" class="tab-btn active flex-1 py-2 text-sm font-medium rounded-xl transition-all">📷 Camera</button>
+            <button id="tab-upload" class="tab-btn flex-1 py-2 text-sm font-medium rounded-xl transition-all">📁 Upload</button>
+          </div>
+ 
+          <!-- Camera Panel -->
+          <div id="camera-panel">
+            <div class="relative rounded-2xl overflow-hidden bg-gray-900 aspect-video" id="camera-container">
+              <video id="main-video" class="w-full h-full object-cover" autoplay muted playsinline></video>
+              <canvas id="filter-canvas" class="absolute inset-0 w-full h-full hidden"></canvas>
+              <div id="countdown-overlay" class="absolute inset-0 flex items-center justify-center hidden">
+                <div id="countdown-number" class="countdown-num font-syne font-extrabold text-white"></div>
+              </div>
+              <div id="camera-off-placeholder" class="absolute inset-0 flex flex-col items-center justify-center text-white/50">
+                <div class="text-5xl mb-3">📸</div>
+                <p class="text-sm">Camera is off</p>
+                <button id="start-camera-btn" class="mt-4 btn-primary px-4 py-2 text-sm">Start Camera</button>
+              </div>
+            </div>
+ 
+            <!-- Controls -->
+            <div class="mt-4 space-y-3">
+              <!-- Filter row -->
+              <div>
+                <p class="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">Filter</p>
+                <div class="flex gap-2 overflow-x-auto pb-1 snap-x" id="filter-bar">
+                  <!-- Filled by JS -->
+                </div>
+              </div>
+              <!-- Settings row -->
+              <div class="flex flex-wrap gap-3">
+                <div>
+                  <p class="text-xs font-medium text-gray-400 mb-1.5">Timer</p>
+                  <div class="flex gap-1" id="timer-select">
+                    <button class="timer-btn active px-3 py-1.5 rounded-lg text-sm" data-val="3">3s</button>
+                    <button class="timer-btn px-3 py-1.5 rounded-lg text-sm" data-val="5">5s</button>
+                    <button class="timer-btn px-3 py-1.5 rounded-lg text-sm" data-val="10">10s</button>
+                  </div>
+                </div>
+                <div>
+                  <p class="text-xs font-medium text-gray-400 mb-1.5">Mirror</p>
+                  <button id="mirror-btn" class="toggle-btn px-3 py-1.5 rounded-lg text-sm active">ON</button>
+                </div>
+              </div>
+              <!-- Capture button -->
+              <button id="capture-btn" class="btn-primary w-full py-3 text-base mt-2 hidden">
+                📸 Take Photo (<span id="shots-remaining">4</span> left)
+              </button>
+            </div>
+          </div>
+ 
+          <!-- Upload Panel -->
+          <div id="upload-panel" class="hidden">
+            <div id="drop-zone" class="drop-zone rounded-2xl border-2 border-dashed border-violet-300 dark:border-violet-700 p-10 text-center cursor-pointer hover:border-violet-500 transition-colors">
+              <div class="text-5xl mb-3">📁</div>
+              <p class="font-medium mb-1">Drag & Drop photos here</p>
+              <p class="text-sm text-gray-400 mb-4">Supports JPG, PNG, WEBP</p>
+              <label class="btn-primary px-4 py-2 text-sm cursor-pointer">
+                Browse Files
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" multiple class="hidden" />
+              </label>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Photo strip preview panel -->
+        <div>
+          <p class="text-xs font-medium text-gray-400 mb-3 uppercase tracking-wide">Captured Photos</p>
+          <div id="shot-slots" class="flex flex-col gap-3">
+            <!-- Filled by JS -->
+          </div>
+          <button id="proceed-to-editor" class="btn-primary w-full py-3 mt-4 hidden">
+            ✏️ Edit & Preview →
+          </button>
+          <button id="retake-all-btn" class="btn-ghost w-full py-2 mt-2 text-sm hidden">
+            🔄 Retake All
+          </button>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Editor Step -->
+  <div id="booth-step-editor" class="booth-step hidden px-4 py-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 mb-6">
+        <button id="back-to-capture" class="btn-ghost px-3 py-2 text-sm">← Back</button>
+        <h2 class="font-syne font-bold text-2xl">Edit & Preview</h2>
+      </div>
+      <div class="grid lg:grid-cols-5 gap-6">
+ 
+        <!-- Editor tools sidebar -->
+        <div class="lg:col-span-2 space-y-4">
+          <!-- Tab nav for tool categories -->
+          <div class="grid grid-cols-4 gap-1 glass-card p-1 rounded-xl">
+            <button class="editor-tab-btn active py-2 text-xs rounded-lg" data-tab="adjust">🎛️ Adjust</button>
+            <button class="editor-tab-btn py-2 text-xs rounded-lg" data-tab="transform">🔄 Transform</button>
+            <button class="editor-tab-btn py-2 text-xs rounded-lg" data-tab="decor">🎨 Decor</button>
+            <button class="editor-tab-btn py-2 text-xs rounded-lg" data-tab="frame">🖼️ Frame</button>
+          </div>
+ 
+          <!-- Adjust Tab -->
+          <div id="editor-tab-adjust" class="editor-tab-content glass-card p-4 rounded-2xl space-y-4">
+            <div class="slider-group">
+              <div class="flex justify-between text-xs mb-1"><span>Brightness</span><span id="brightness-val">100</span></div>
+              <input type="range" id="sl-brightness" class="editor-slider w-full" min="0" max="200" value="100" />
+            </div>
+            <div class="slider-group">
+              <div class="flex justify-between text-xs mb-1"><span>Contrast</span><span id="contrast-val">100</span></div>
+              <input type="range" id="sl-contrast" class="editor-slider w-full" min="0" max="200" value="100" />
+            </div>
+            <div class="slider-group">
+              <div class="flex justify-between text-xs mb-1"><span>Saturation</span><span id="saturation-val">100</span></div>
+              <input type="range" id="sl-saturation" class="editor-slider w-full" min="0" max="200" value="100" />
+            </div>
+            <div class="slider-group">
+              <div class="flex justify-between text-xs mb-1"><span>Sharpness</span><span id="sharpness-val">0</span></div>
+              <input type="range" id="sl-sharpness" class="editor-slider w-full" min="0" max="10" value="0" />
+            </div>
+            <div class="slider-group">
+              <div class="flex justify-between text-xs mb-1"><span>Background Blur</span><span id="blur-val">0</span></div>
+              <input type="range" id="sl-blur" class="editor-slider w-full" min="0" max="10" value="0" />
+            </div>
+            <button id="reset-adjustments" class="btn-ghost w-full py-2 text-xs">Reset All</button>
+          </div>
+ 
+          <!-- Transform Tab -->
+          <div id="editor-tab-transform" class="editor-tab-content glass-card p-4 rounded-2xl space-y-3 hidden">
+            <p class="text-xs text-gray-400 font-medium">Select photo to transform</p>
+            <div class="flex gap-2 flex-wrap">
+              <button class="transform-btn flex-1 py-2 rounded-lg text-sm glass-btn" data-action="rotate-left">↺ Rotate L</button>
+              <button class="transform-btn flex-1 py-2 rounded-lg text-sm glass-btn" data-action="rotate-right">↻ Rotate R</button>
+              <button class="transform-btn flex-1 py-2 rounded-lg text-sm glass-btn" data-action="flip-h">⇄ Flip H</button>
+              <button class="transform-btn flex-1 py-2 rounded-lg text-sm glass-btn" data-action="flip-v">⇅ Flip V</button>
+            </div>
+            <div>
+              <p class="text-xs text-gray-400 mb-2">Apply filter to strip</p>
+              <div class="flex gap-2 overflow-x-auto pb-1" id="editor-filter-bar"></div>
+            </div>
+          </div>
+ 
+          <!-- Decor Tab -->
+          <div id="editor-tab-decor" class="editor-tab-content glass-card p-4 rounded-2xl space-y-3 hidden">
+            <div>
+              <p class="text-xs font-medium text-gray-400 mb-2">Add Text</p>
+              <input id="text-input" type="text" placeholder="Type something..." class="w-full px-3 py-2 text-sm rounded-xl border border-gray-200 dark:border-gray-700 bg-transparent" />
+              <input type="color" id="text-color" value="#7C3AED" class="mt-2 w-8 h-8 cursor-pointer rounded" title="Text color" />
+              <button id="add-text-btn" class="btn-primary w-full py-2 text-sm mt-2">Add Text</button>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-gray-400 mb-2">Stickers</p>
+              <div class="grid grid-cols-6 gap-2" id="sticker-picker">
+                <!-- Filled by JS -->
+              </div>
+            </div>
+          </div>
+ 
+          <!-- Frame Tab -->
+          <div id="editor-tab-frame" class="editor-tab-content glass-card p-4 rounded-2xl hidden">
+            <p class="text-xs font-medium text-gray-400 mb-3">Strip Frame Color</p>
+            <div class="grid grid-cols-5 gap-2" id="frame-color-picker">
+              <!-- Filled by JS -->
+            </div>
+            <p class="text-xs font-medium text-gray-400 mb-3 mt-4">Strip Width</p>
+            <input type="range" id="frame-width-slider" class="editor-slider w-full" min="10" max="60" value="20" />
+          </div>
+ 
+        </div>
+ 
+        <!-- Preview canvas -->
+        <div class="lg:col-span-3">
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-xs font-medium text-gray-400 uppercase tracking-wide">Live Preview</p>
+            <div class="flex gap-2">
+              <button id="zoom-in-btn" class="glass-btn px-3 py-1.5 text-sm">＋</button>
+              <button id="zoom-out-btn" class="glass-btn px-3 py-1.5 text-sm">－</button>
+            </div>
+          </div>
+          <div class="preview-wrapper rounded-2xl overflow-auto flex justify-center items-start p-4 bg-gray-100 dark:bg-gray-800 min-h-[400px]">
+            <canvas id="preview-canvas" class="rounded-xl shadow-2xl max-w-full" style="transform-origin: top center;"></canvas>
+          </div>
+          <!-- Text overlays (drawn over canvas) -->
+          <div id="text-overlays" class="hidden"></div>
+ 
+          <!-- Action buttons -->
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button id="save-project-btn" class="btn-ghost flex-1 py-3 text-sm min-w-[120px]">💾 Save</button>
+            <button id="download-btn" class="btn-primary flex-1 py-3 text-sm min-w-[120px]">⬇️ Download</button>
+            <button id="print-btn" class="btn-ghost flex-1 py-3 text-sm min-w-[120px]">🖨️ Print</button>
+          </div>
+          <!-- Download format options -->
+          <div id="download-options" class="hidden mt-3 glass-card p-3 rounded-xl flex gap-2 flex-wrap">
+            <button class="dl-btn flex-1 py-2 text-sm rounded-lg glass-btn font-medium" data-fmt="png">PNG</button>
+            <button class="dl-btn flex-1 py-2 text-sm rounded-lg glass-btn font-medium" data-fmt="jpg">JPG</button>
+            <button class="dl-btn flex-1 py-2 text-sm rounded-lg glass-btn font-medium" data-fmt="pdf">PDF</button>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<!-- END PAGE BOOTH -->
+ 
+</main>
+ 
+<!-- ========== FOOTER ========== -->
+<footer class="py-8 px-4 border-t border-gray-100 dark:border-gray-800">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+    <div class="flex items-center gap-2">
+      <span class="w-6 h-6 rounded bg-violet-600 flex items-center justify-center text-white text-xs font-bold">S</span>
+      <span class="font-syne font-bold text-gray-700 dark:text-gray-200">SnapBooth</span>
+    </div>
+    <p>Made with 💜 · Free Forever · No sign-up needed</p>
+    <p>© 2025 SnapBooth</p>
+  </div>
+</footer>
+ 
+<script src="app.js"></script>
+</body>
+</html>
+ 
+                </div>
+            </div>
+
+        </nav>
         
