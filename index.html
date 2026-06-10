@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>kiwiSnapBooth - Premium Online Photobooth</tittle>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            tailwind.config = {
-                darkMode: 'class',
-                theme:{
-                    extend: {
-                        fontFamily: {syne: ['Syne','sans-serif'], inter: ['Inter','sans-serif']},
-                        colors: { 
-                            violet: { 600:'#7C3AED', 500:'#8B5CF6', 400:'#A855F7' },
-                        }
-                    }
-                }
-            }
-            </script>
-            <link rel="stylesheet" href="style.css"/>
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SnapBooth — Premium Online Photobooth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { syne: ['Syne','sans-serif'], inter: ['Inter','sans-serif'] },
+          colors: {
+            violet: { 600:'#7C3AED', 500:'#8B5CF6', 400:'#A855F7' },
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-inter bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-    <body class="font-inter bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+<!-- ========== TOAST ========== -->
+<div id="toast-container" class="fixed top-5 right-5 z-[9999] flex flex-col gap-2 pointer-events-none"></div>
 
-        <div id="toast-container" class="fixed top-5 right-5 z-[9999] bg-violet-600 flex items-center justify-center hidden">
-            <div class="text-center text-white">
-                <div class="loader-ring mx-auto mb-4">
-                    <p class="font-syne text-xl font-bold">
-                        <p class="text-sm opacity-70 mt-1">Loading your cretaive space...</p>
-                    </p>
-                </div>
-            </div>
-        </div>
+<!-- ========== LOADING OVERLAY ========== -->
+<div id="loading-overlay" class="fixed inset-0 z-[9998] bg-violet-600 flex items-center justify-center hidden">
+  <div class="text-center text-white">
+    <div class="loader-ring mx-auto mb-4"></div>
+    <p class="font-syne text-xl font-bold">SnapBooth</p>
+    <p class="text-sm opacity-70 mt-1">Loading your creative space...</p>
+  </div>
+</div>
 
-        <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all suration-300">
-            <div class="max-w-7x1 mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-                <a href="#home" class="font-syne font-800 text-x1 flex items-center gap-2 nav-link" data-page="home">
-                    <span class="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white text-sm font-bold">S</span>
-                    <span class="font-syne font-extrabold">SnapBooth</span>
-                </a>
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#home" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="home">Home</a>
-                    <a href="#booth" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="booth">Booth</a>
-                    <a href="#templates" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="templates">Templates</a>
-                    <a href="#gallery" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="gallery">Gallery</a>
-                </div>
-                <div class="flex items-center gap-3">
-                    <button id="theme-toggle" class="w=9 h-9 rounded-lg glass-btn flex items-center justify-center">
-                        <span class="hamburger-icon">☰</span>
-                    </button>
-                </div>
-            </div>
-
-            <div id="mobile-menu" class="hidden md:hidden glass-card mc-4 mb-4 rounded-2x1 p-4">
-                <div class="flex flex-col gap-3">
-                    <a href="#home" class="nav-link mobile-nav-link"data-page="home">🏠 Home</a>
+<!-- ========== NAVBAR ========== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <a href="#home" class="font-syne font-800 text-xl flex items-center gap-2 nav-link" data-page="home">
+      <span class="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white text-sm font-bold">S</span>
+      <span class="font-syne font-extrabold">SnapBooth</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#home" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="home">Home</a>
+      <a href="#booth" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="booth">Booth</a>
+      <a href="#templates" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="templates">Templates</a>
+      <a href="#gallery" class="nav-link text-sm font-medium hover:text-violet-600 transition-colors" data-page="gallery">Gallery</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="theme-toggle" class="w-9 h-9 rounded-lg glass-btn flex items-center justify-center text-lg" title="Toggle dark mode">🌙</button>
+      <button class="hidden md:flex btn-primary text-sm px-4 py-2 nav-link" data-page="booth">Start Creating</button>
+      <button id="mobile-menu-btn" class="md:hidden w-9 h-9 rounded-lg glass-btn flex items-center justify-center">
+        <span class="hamburger-icon">☰</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden glass-card mx-4 mb-4 rounded-2xl p-4">
+    <div class="flex flex-col gap-3">
+      <a href="#home" class="nav-link mobile-nav-link" data-page="home">🏠 Home</a>
       <a href="#booth" class="nav-link mobile-nav-link" data-page="booth">📸 Booth</a>
       <a href="#templates" class="nav-link mobile-nav-link" data-page="templates">🎨 Templates</a>
       <a href="#gallery" class="nav-link mobile-nav-link" data-page="gallery">🖼️ Gallery</a>
     </div>
   </div>
 </nav>
- 
+
 <!-- ========== PAGES ========== -->
 <main>
- 
+
 <!-- ===== PAGE: HOME ===== -->
 <div id="page-home" class="page active">
- 
+
   <!-- Hero Section -->
   <section id="home" class="hero-section min-h-screen flex items-center pt-20 px-4 relative overflow-hidden">
     <div class="hero-bg-orbs">
@@ -139,7 +143,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- How It Works -->
   <section class="py-24 px-4 bg-gray-50 dark:bg-gray-900/50">
     <div class="max-w-6xl mx-auto">
@@ -175,7 +179,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- Trending Templates -->
   <section id="templates-section" class="py-24 px-4">
     <div class="max-w-6xl mx-auto">
@@ -191,7 +195,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- Testimonials -->
   <section class="py-24 px-4 bg-gray-50 dark:bg-gray-900/50">
     <div class="max-w-6xl mx-auto">
@@ -227,7 +231,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- CTA -->
   <section class="py-24 px-4">
     <div class="max-w-3xl mx-auto text-center">
@@ -241,12 +245,12 @@
       </div>
     </div>
   </section>
- 
+
 </div>
 <!-- END PAGE HOME -->
- 
+
 <!-- ===== PAGE: TEMPLATES ===== -->
-<div id="page-templates" class="page hidden pt-24 pb-16 px-4">
+<div id="page-templates" class="page pt-24 pb-16 px-4">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12">
       <h1 class="font-syne font-extrabold text-4xl md:text-5xl mb-3">All Templates</h1>
@@ -257,9 +261,9 @@
     </div>
   </div>
 </div>
- 
+
 <!-- ===== PAGE: GALLERY ===== -->
-<div id="page-gallery" class="page hidden pt-24 pb-16 px-4" id="gallery">
+<div id="page-gallery" class="page pt-24 pb-16 px-4" id="gallery">
   <div class="max-w-6xl mx-auto">
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
       <div>
@@ -279,10 +283,10 @@
     </div>
   </div>
 </div>
- 
+
 <!-- ===== PAGE: BOOTH ===== -->
-<div id="page-booth" class="page hidden pt-20 min-h-screen" id="booth">
- 
+<div id="page-booth" class="page pt-20 min-h-screen" id="booth">
+
   <!-- Template Selection Step -->
   <div id="booth-step-template" class="booth-step px-4 py-10">
     <div class="max-w-5xl mx-auto">
@@ -293,9 +297,9 @@
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" id="booth-templates-grid"></div>
     </div>
   </div>
- 
+
   <!-- Camera / Upload Step -->
-  <div id="booth-step-capture" class="booth-step hidden px-4 py-8">
+  <div id="booth-step-capture" class="booth-step px-4 py-8">
     <div class="max-w-6xl mx-auto">
       <div class="flex items-center gap-4 mb-6">
         <button id="back-to-templates" class="btn-ghost px-3 py-2 text-sm">← Back</button>
@@ -305,7 +309,7 @@
         </div>
       </div>
       <div class="grid lg:grid-cols-3 gap-6">
- 
+
         <!-- Camera / Upload Panel -->
         <div class="lg:col-span-2">
           <!-- Mode tabs -->
@@ -313,7 +317,7 @@
             <button id="tab-camera" class="tab-btn active flex-1 py-2 text-sm font-medium rounded-xl transition-all">📷 Camera</button>
             <button id="tab-upload" class="tab-btn flex-1 py-2 text-sm font-medium rounded-xl transition-all">📁 Upload</button>
           </div>
- 
+
           <!-- Camera Panel -->
           <div id="camera-panel">
             <div class="relative rounded-2xl overflow-hidden bg-gray-900 aspect-video" id="camera-container">
@@ -328,7 +332,7 @@
                 <button id="start-camera-btn" class="mt-4 btn-primary px-4 py-2 text-sm">Start Camera</button>
               </div>
             </div>
- 
+
             <!-- Controls -->
             <div class="mt-4 space-y-3">
               <!-- Filter row -->
@@ -359,7 +363,7 @@
               </button>
             </div>
           </div>
- 
+
           <!-- Upload Panel -->
           <div id="upload-panel" class="hidden">
             <div id="drop-zone" class="drop-zone rounded-2xl border-2 border-dashed border-violet-300 dark:border-violet-700 p-10 text-center cursor-pointer hover:border-violet-500 transition-colors">
@@ -373,7 +377,7 @@
             </div>
           </div>
         </div>
- 
+
         <!-- Photo strip preview panel -->
         <div>
           <p class="text-xs font-medium text-gray-400 mb-3 uppercase tracking-wide">Captured Photos</p>
@@ -387,20 +391,20 @@
             🔄 Retake All
           </button>
         </div>
- 
+
       </div>
     </div>
   </div>
- 
+
   <!-- Editor Step -->
-  <div id="booth-step-editor" class="booth-step hidden px-4 py-8">
+  <div id="booth-step-editor" class="booth-step px-4 py-8">
     <div class="max-w-7xl mx-auto">
       <div class="flex items-center gap-4 mb-6">
         <button id="back-to-capture" class="btn-ghost px-3 py-2 text-sm">← Back</button>
         <h2 class="font-syne font-bold text-2xl">Edit & Preview</h2>
       </div>
       <div class="grid lg:grid-cols-5 gap-6">
- 
+
         <!-- Editor tools sidebar -->
         <div class="lg:col-span-2 space-y-4">
           <!-- Tab nav for tool categories -->
@@ -410,7 +414,7 @@
             <button class="editor-tab-btn py-2 text-xs rounded-lg" data-tab="decor">🎨 Decor</button>
             <button class="editor-tab-btn py-2 text-xs rounded-lg" data-tab="frame">🖼️ Frame</button>
           </div>
- 
+
           <!-- Adjust Tab -->
           <div id="editor-tab-adjust" class="editor-tab-content glass-card p-4 rounded-2xl space-y-4">
             <div class="slider-group">
@@ -435,7 +439,7 @@
             </div>
             <button id="reset-adjustments" class="btn-ghost w-full py-2 text-xs">Reset All</button>
           </div>
- 
+
           <!-- Transform Tab -->
           <div id="editor-tab-transform" class="editor-tab-content glass-card p-4 rounded-2xl space-y-3 hidden">
             <p class="text-xs text-gray-400 font-medium">Select photo to transform</p>
@@ -450,7 +454,7 @@
               <div class="flex gap-2 overflow-x-auto pb-1" id="editor-filter-bar"></div>
             </div>
           </div>
- 
+
           <!-- Decor Tab -->
           <div id="editor-tab-decor" class="editor-tab-content glass-card p-4 rounded-2xl space-y-3 hidden">
             <div>
@@ -466,7 +470,7 @@
               </div>
             </div>
           </div>
- 
+
           <!-- Frame Tab -->
           <div id="editor-tab-frame" class="editor-tab-content glass-card p-4 rounded-2xl hidden">
             <p class="text-xs font-medium text-gray-400 mb-3">Strip Frame Color</p>
@@ -476,9 +480,9 @@
             <p class="text-xs font-medium text-gray-400 mb-3 mt-4">Strip Width</p>
             <input type="range" id="frame-width-slider" class="editor-slider w-full" min="10" max="60" value="20" />
           </div>
- 
+
         </div>
- 
+
         <!-- Preview canvas -->
         <div class="lg:col-span-3">
           <div class="flex items-center justify-between mb-3">
@@ -493,7 +497,7 @@
           </div>
           <!-- Text overlays (drawn over canvas) -->
           <div id="text-overlays" class="hidden"></div>
- 
+
           <!-- Action buttons -->
           <div class="mt-4 flex flex-wrap gap-3">
             <button id="save-project-btn" class="btn-ghost flex-1 py-3 text-sm min-w-[120px]">💾 Save</button>
@@ -507,16 +511,16 @@
             <button class="dl-btn flex-1 py-2 text-sm rounded-lg glass-btn font-medium" data-fmt="pdf">PDF</button>
           </div>
         </div>
- 
+
       </div>
     </div>
   </div>
- 
+
 </div>
 <!-- END PAGE BOOTH -->
- 
+
 </main>
- 
+
 <!-- ========== FOOTER ========== -->
 <footer class="py-8 px-4 border-t border-gray-100 dark:border-gray-800">
   <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
@@ -528,13 +532,7 @@
     <p>© 2025 SnapBooth</p>
   </div>
 </footer>
- 
+
 <script src="app.js"></script>
 </body>
 </html>
- 
-                </div>
-            </div>
-
-        </nav>
-        
